@@ -4,6 +4,18 @@ function changeText() {
     document.getElementById("message").innerHTML=text;
   }
 
-  function changeColor() {
+  function changeColorBlue() {
     document.getElementById("poster").style.backgroundColor = "#3050D0";
+  }
+
+  function changeColorYellow() {
+    document.getElementById("poster").style.backgroundColor = "#fff200";
+  }
+
+  function changeColorTurquoise() {
+    document.getElementById("poster").style.backgroundColor = "#05EAE0";
+  }
+
+  function changeColorCoral() {
+    document.getElementById("poster").style.backgroundColor = "#ff7f50";
   }
