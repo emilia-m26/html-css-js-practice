@@ -21,6 +21,17 @@ function changeText() {
   }
 
   function changeIconCrown() {
-    document.getElementById("icon").src = "https://www.101computing.net/wp/wp-content/uploads/html-icon.png";
+    document.getElementById("icon").src = "https://www.101computing.net/wp/wp-content/uploads/Keep-calm-and-carry-on-crown.png";
+  }
 
+  function changeIconHTML() {
+    document.getElementById("icon").src = "https://www.101computing.net/wp/wp-content/uploads/html-icon.png";
+  }
+
+  function changeIconCSS() {
+    document.getElementById("icon").src = "https://www.101computing.net/wp/wp-content/uploads/css-icon.png";
+  }
+
+  function changeIconJS() {
+    document.getElementById("icon").src = "https://www.101computing.net/wp/wp-content/uploads/javascript-icon.png";
   }
