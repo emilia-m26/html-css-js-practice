@@ -19,3 +19,8 @@ function changeText() {
   function changeColorCoral() {
     document.getElementById("poster").style.backgroundColor = "#ff7f50";
   }
+
+  function changeIconCrown() {
+    document.getElementById("icon").src = "https://www.101computing.net/wp/wp-content/uploads/html-icon.png";
+
+  }
