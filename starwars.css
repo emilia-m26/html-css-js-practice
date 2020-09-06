@@ -50,3 +50,12 @@ body {
     color: #FFFF66;
     margin-top: 5px;
 }
+
+.type span:nth-child(3) {
+    margin-top: -5px;
+    font-family: "Times New Roman";
+    font-size: 100px;
+    margin-top: -12px;
+    color: #4c9f41;
+    text-shadow: 4px 4px 0 #333333;
+}
