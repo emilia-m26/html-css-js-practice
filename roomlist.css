@@ -3,13 +3,15 @@ h4 {
     top: 0px;
     background-color: white;
     padding: 5px;
+    font-family: sans-serif;
 }
 
 p {
     position: absolute;
     top: 133px;
-    left: 238px;
+    left: 232px;
     background-color: turquoise;
     padding: 5px;
-    color: #ffffff
+    color: #ffffff;
+    font-family: sans-serif;
 }
