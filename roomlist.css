@@ -1,9 +1,11 @@
 h4 {
     position: absolute;
     top: 0px;
+    background-color: white;
 }
 
 p {
     position: absolute;
     top: 140px;
+    background-color: turquoise;
 }
