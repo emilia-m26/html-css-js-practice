@@ -1,11 +1,13 @@
 h4 {
     position: absolute;
-    top: 0px;
+    top: -10px;
     background-color: white;
+    padding: 5px;
 }
 
 p {
     position: absolute;
-    top: 140px;
+    top: 135px;
     background-color: turquoise;
+    padding: 5px;
 }
