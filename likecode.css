@@ -11,3 +11,9 @@
     left: 30px;
     color: #43cbff
 }
+
+.secondIndent {
+    position: relative;
+    left: 60px;
+    color: #62d76b;
+}
