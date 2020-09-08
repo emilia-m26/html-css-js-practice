@@ -5,3 +5,9 @@
     font-weight: bold;
     padding: 5px;
 }
+
+.firstIndent {
+    position: relative;
+    left: 30px;
+    color: #43cbff
+}
