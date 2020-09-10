@@ -24,3 +24,14 @@ butts.addEventListener('click', handleClick);
 
 coolButton.addEventListener('click', handleClick);
 
+// //listen on multiple items - select all -use forEach()
+const buyButtons = document.querySelectorAll('button.buy');
+console.log(buyButtons);
+
+function buyItem() {
+    console.log('Buying Item');
+}
+
+buyButtons.forEach(function(buyButton){
+    buyButton.addEventListener('click',buyItem);
+})
