@@ -14,3 +14,13 @@ console.log(coolButton);
 //go get something
 //listen for something
 //do something
+
+//outside function handed into even listener
+function handleClick() {
+    console.log('It got clicked!?!?');
+}
+
+butts.addEventListener('click', handleClick);
+
+coolButton.addEventListener('click', handleClick);
+
