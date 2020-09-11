@@ -8,3 +8,11 @@ signupForm.addEventListener('submit', function(event) {
     console.log(event.currentTarget.email.value);
     console.log(event.currentTarget.agree.checked);
 });
+
+const falcor = document.querySelector('img');
+console.log(falcor);
+
+falcor.addEventListener('click', function(event){
+    console.log("You scratched behind falcor's ear!");
+    console.log(event.currentTarget);
+})
