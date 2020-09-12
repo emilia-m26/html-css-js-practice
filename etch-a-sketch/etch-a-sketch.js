@@ -33,7 +33,14 @@ ctx.stroke();
 //write a draw function
 
 ///write handler for keys
+function handleKey(event) {
+    event.preventDefault();
+    console.log('handling keys');
+};
+
 
 //clear or shake function
 
 //listen for arrow keys
+//window to listen site-wide
+window.addEventListener('keydown', handleKey);
