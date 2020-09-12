@@ -18,11 +18,11 @@ console.log(width, height);
 //create random x and y starting points on canvas
 let x = Math.floor(Math.random() * width);
 let y = Math.floor(Math.random() * height);
-
+const MOVE_AMOUNT = 10; //true const, never change
 
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
-ctx.lineWidth = 10;
+ctx.lineWidth = MOVE_AMOUNT;
 
 ctx.beginPath(); //starts the drawing
 ctx.moveTo(x, y); //200px in, 200px from top
@@ -34,6 +34,14 @@ ctx.stroke();
 //{key} - object destructuring
 function draw({ key }) {
     console.log(key);
+    //start path
+    ctx.beginPath();
+    ctx.moveTo(x, y); 
+    //move x and y values depending on what user did
+    x = x - MOVE_AMOUNT;
+    y = y - MOVE_AMOUNT;
+    ctx.lineTo(x,y);
+    ctx.stroke();
 };
 
 ///write handler for keys - handing key to draw function
