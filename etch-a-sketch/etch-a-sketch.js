@@ -11,9 +11,9 @@ console.log(shakeButton);
 
 
 //setup canvas for drawing
-
-
-
+ctx.lineJoin = 'round';
+ctx.lineCap = 'round';
+ctx.lineWidth = 10;
 
 //write a draw function
 
