@@ -34,8 +34,11 @@ ctx.stroke();
 
 ///write handler for keys
 function handleKey(event) {
-    event.preventDefault();
-    console.log('handling keys');
+    if (event.key.includes('Arrow')) {
+        event.preventDefault();
+        console.group(event.key);
+        console.log('handling keys');
+    }
 };
 
 
