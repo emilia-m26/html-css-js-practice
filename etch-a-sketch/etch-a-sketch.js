@@ -3,12 +3,9 @@ console.log('it works');
 //Select elements on page
 const canvas = document.querySelector('#etch-a-sketch');
 console.log(canvas);
-
 const ctx = canvas.getContext('2d');
-
 const shakeButton = document.querySelector('.shake');
 console.log(shakeButton);
-
 
 //setup canvas for drawing
 //make variable using destructuring, from same property on our canvas
@@ -38,8 +35,23 @@ function draw({ key }) {
     ctx.beginPath();
     ctx.moveTo(x, y); 
     //move x and y values depending on what user did
-    x = x - MOVE_AMOUNT;
-    y = y - MOVE_AMOUNT;
+    switch (key) {
+        case 'ArrowUp': 
+            y = y - MOVE_AMOUNT;
+            break;
+        case 'ArrowRight': 
+            x = x + MOVE_AMOUNT;
+            break;
+        case 'ArrowDown': 
+            y = y + MOVE_AMOUNT;
+            break;
+        case 'ArrowLeft': 
+            x = x - MOVE_AMOUNT;
+            break;    
+        default: 
+            break;
+    }
+    
     ctx.lineTo(x,y);
     ctx.stroke();
 };
