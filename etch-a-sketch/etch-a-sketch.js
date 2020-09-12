@@ -22,7 +22,8 @@ ctx.lineCap = 'round';
 ctx.lineWidth = MOVE_AMOUNT;
 
 let hue = 0;
-ctx.strokeStyle = `hsl(180, 100%, 50%)`;
+//ctx.strokeStyle = `hsl(180, 100%, 50%)`; - turquoise start
+ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
 
 ctx.beginPath(); //starts the drawing
 ctx.moveTo(x, y); //200px in, 200px from top
@@ -33,6 +34,8 @@ ctx.stroke();
 //write a draw function -using options object to allow for several handins
 //{key} - object destructuring
 function draw({ key }) {
+    hue = hue + 10;
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     console.log(key);
     //start path
     ctx.beginPath();
