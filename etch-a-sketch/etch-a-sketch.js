@@ -15,6 +15,8 @@ console.log(shakeButton);
 const { width, height } = canvas;
 console.log(width, height);
 
+//create random x and y starting points on canvas
+let x = Math.floor(Math.random() * width);
 
 
 ctx.lineJoin = 'round';
@@ -22,8 +24,8 @@ ctx.lineCap = 'round';
 ctx.lineWidth = 10;
 
 ctx.beginPath(); //starts the drawing
-ctx.moveTo(200, 200); //200px in, 200px from top
-ctx.lineTo(200, 200);
+ctx.moveTo(x, 200); //200px in, 200px from top
+ctx.lineTo(x, 200);
 ctx.stroke();
 
 
