@@ -11,9 +11,21 @@ console.log(shakeButton);
 
 
 //setup canvas for drawing
+//make variable using destructuring, from same property on our canvas
+const { width, height } = canvas;
+console.log(width, height);
+
+
+
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 10;
+
+ctx.beginPath(); //starts the drawing
+ctx.moveTo(200, 200); //200px in, 200px from top
+ctx.lineTo(200, 200);
+ctx.stroke();
+
 
 //write a draw function
 
