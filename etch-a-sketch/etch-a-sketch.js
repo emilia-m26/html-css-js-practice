@@ -30,14 +30,17 @@ ctx.lineTo(x, y);
 ctx.stroke();
 
 
-//write a draw function
+//write a draw function -using options object to allow for several handins
+//{key} - object destructuring
+function draw({ key }) {
+    console.log(key);
+};
 
-///write handler for keys
+///write handler for keys - handing key to draw function
 function handleKey(event) {
     if (event.key.includes('Arrow')) {
         event.preventDefault();
-        console.group(event.key);
-        console.log('handling keys');
+        draw({key: event.key});
     }
 };
 
