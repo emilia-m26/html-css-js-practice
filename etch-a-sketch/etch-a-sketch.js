@@ -76,7 +76,9 @@ function clearCanvas() {
     canvas.classList.add('shake');
     canvas.addEventListener('animationend', function() {
         canvas.classList.remove('shake');
-    });
+    }, 
+    { once: true } //third arg is obj so listener will remove when listener is done
+    );
 };
 
 //listen for arrow keys
