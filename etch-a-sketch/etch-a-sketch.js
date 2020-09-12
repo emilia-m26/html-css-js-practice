@@ -15,11 +15,14 @@ console.log(width, height);
 //create random x and y starting points on canvas
 let x = Math.floor(Math.random() * width);
 let y = Math.floor(Math.random() * height);
-const MOVE_AMOUNT = 10; //true const, never change
+const MOVE_AMOUNT = 20; //true const, never change
 
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = MOVE_AMOUNT;
+
+let hue = 0;
+ctx.strokeStyle = `hsl(180, 100%, 50%)`;
 
 ctx.beginPath(); //starts the drawing
 ctx.moveTo(x, y); //200px in, 200px from top
