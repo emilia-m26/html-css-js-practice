@@ -38,12 +38,12 @@ modalOuter.addEventListener('click', function(event){
     const isOutside = !event.target.closest('.modal-inner');
     //console.log(isOutside);
     if(isOutside) {
-        modalOuter.classList.remove('open');
+        closeModal()
     }
 })
 
-window.addEventListener('click', function(event){
+window.addEventListener('keydown', function(event){
     if (event.key === 'Escape'){
-        modalOuter.classList.remove('open');
+        closeModal()
     }
 })
