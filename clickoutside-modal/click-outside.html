@@ -87,6 +87,14 @@
             background: white;
             padding: 2rem;
             border-radius: 5px;
+            transform: translateY(-200%);
+            transition: transform 2s;
+        }
+        /*when modal out has class of open,grab modal inner and change transform to 0, 
+        so image can go where it should be */
+        
+        .modal-outer.open .modal-inner {
+            transform: translateY(0);
         }
     </style>
 
