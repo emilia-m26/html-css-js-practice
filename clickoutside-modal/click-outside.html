@@ -30,8 +30,13 @@
             <h2>Scooby the dog</h2>
             <button>Learn more →</button>
         </div>
-
     </div>
+
+    <div class="modal-outer">
+        <div class="modal-inner">
+        </div>
+    </div>
+
     <style>
         .cards {
             display: grid;
@@ -49,12 +54,19 @@
         .card img {
             width: 100%;
         }
+        
+        .modal-outer {
+            display: grid;
+            background: hsla(181, 72%, 50%, 0.7);
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+        }
     </style>
-    <div class="modal-outer">
-        <div class="modal-inner">
 
-        </div>
-    </div>
+
     <script src="./click-outside.js"></script>
 </body>
 
