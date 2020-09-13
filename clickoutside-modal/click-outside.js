@@ -29,12 +29,21 @@ function handleCardButtonClick(event){
 
 cardButtons.forEach(button => button.addEventListener('click', handleCardButtonClick));
 
-
 function closeModal() {
     modalOuter.classList.remove('open');
 }
 
+
 modalOuter.addEventListener('click', function(event){
-    console.log(event.target);
-    console.log(event.currentTarget);
+    const isOutside = !event.target.closest('.modal-inner');
+    //console.log(isOutside);
+    if(isOutside) {
+        modalOuter.classList.remove('open');
+    }
+})
+
+window.addEventListener('click', function(event){
+    if (event.key === 'Escape'){
+        modalOuter.classList.remove('open');
+    }
 })
