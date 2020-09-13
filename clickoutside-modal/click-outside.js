@@ -1,18 +1,31 @@
 console.log('connected');
 
 const cardButtons =document.querySelectorAll('.card button');
+//use to populate modal
+const modalInner = document.querySelector('.modal-inner');
+//use to show modal
+const modalOuter = document.querySelector('.modal-outer');
+
 
 //grab something to show in modal - event
 function handleCardButtonClick(event){
     const button = event.currentTarget;
     card = button.closest('.card');
-    console.log(card);
+    //console.log(card);
     //grab image source
     const imgSrc = card.querySelector('img').src;
-    console.log(imgSrc);
+    //console.log(imgSrc);
     const desc = card.dataset.description;
-    console.log(desc);
-};
+    const name = card.querySelector('h2').textContent;
+    //console.log(desc);
+    //populate modal with new info
+    modalInner.innerHTML = `
+        <img src="${imgSrc.replace('200', '600')}" alt="${name}"/>
+        <p>${desc}</p>
+    `;
+    //show modal
+    modalOuter.classList.add('open');
+}
 
 cardButtons.forEach(button => button.addEventListener('click', handleCardButtonClick));
 
