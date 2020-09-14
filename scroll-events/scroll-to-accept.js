@@ -18,11 +18,13 @@ const acceptButton =document.querySelector('.accept');
 //observer takes callback
 const observer = new IntersectionObserver(observerCallback, { 
     root: terms, 
-    threshold: 0.5,
+    threshold: 1,
 });
 
 function observerCallback(payload){
-    console.log(payload[0].intersectionRatio);
+    if (payload[0].intersectionRatio === 1) {
+        acceptButton.disabled = false;
+    }
 }
 
 observer.observe(terms.lastElementChild);
