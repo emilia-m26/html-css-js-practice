@@ -2,7 +2,7 @@ console.log(' IT WORKS!');
 
 const tabs = document.querySelector('.tabs');
 const tabButtons = tabs.querySelectorAll('[role="tab"]');
-const tabPanels = tabs.querySelectorAll('[role="tabpanel"]');
+const tabPanels = Array.from(tabs.querySelectorAll('[role="tabpanel"]'));
 
 function handleTabClick(event){
     //console.log(event.currentTarget);
@@ -18,6 +18,14 @@ function handleTabClick(event){
     //mark the clicked tab as selected
     event.currentTarget.setAttribute('aria-selected', true);
     //find associated tab panel and show it
+    const { id } = event.currentTarget;
+    //console.log(id);
+   const tabPanel = tabPanels.find(panel => {
+        if (panel.getAttribute('aria-labelledby') === id) {
+            return true;
+        }
+    });
+    tabPanel.hidden = false;
 }
 
 tabButtons.forEach(button => button.addEventListener('click',handleTabClick));
