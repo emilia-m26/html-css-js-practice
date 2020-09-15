@@ -24,6 +24,10 @@ const observer = new IntersectionObserver(observerCallback, {
 function observerCallback(payload){
     if (payload[0].intersectionRatio === 1) {
         acceptButton.disabled = false;
+    //below is for other use cases
+    // } else {
+    //     acceptButton.disabled =true;
+        observer.unobserve(terms.lastElementChild); //will stop observing
     }
 }
 
