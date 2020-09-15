@@ -16,6 +16,7 @@ function handleTabClick(event){
         tabButton.setAttribute('aria-selected', false);
     })
     //mark the clicked tab as selected
+    event.currentTarget.setAttribute('aria-selected', true);
     //find associated tab panel and show it
 }
 
