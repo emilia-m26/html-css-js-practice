@@ -70,22 +70,33 @@
         console.log(Array.isArray(myRange)); //true with info above
 
         // Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values() -- on object but return arrays
-        console.log(Object.entries(meats));
-        console.log(Object.keys(meats));
-        console.log(Object.values(meats));
+        console.log(Object.entries(meats)); //each entry its own array
+        console.log(Object.keys(meats)); //array of keys
+        console.log(Object.values(meats)); //array of values
 
         /*
           Instance Methods
         */
 
         // Display all bun types with " or " - use join()
+        console.log(buns.join(' or '));
 
         // We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into a string
+        const foodString = "hot dogs,hamburgers,sausages,corn";
+        console.log(foodString.split(','));
 
         // take the last item off toppings with pop()
+        console.log(toppings.pop()); //returns what was dropped - ex:Cheese
+
         // add it back with push()
+        console.log(toppings.push('Cheese')); //returns length of array
+
         // take the first item off toppings with shift()
+        console.log(toppings.shift()); //returns what was removed
+
         // add it back in with unshift()
+        console.log(toppings.unshift('Mushrooms')); //returns length of array
+
         // Do the last four,but immutable (with spreads and new variables)
 
 
