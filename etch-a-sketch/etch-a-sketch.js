@@ -25,6 +25,7 @@ let hue = 0;
 //ctx.strokeStyle = `hsl(180, 100%, 50%)`; - turquoise start
 ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
 
+
 ctx.beginPath(); //starts the drawing
 ctx.moveTo(x, y); //200px in, 200px from top
 ctx.lineTo(x, y);
