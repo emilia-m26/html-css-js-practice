@@ -174,9 +174,16 @@
         const atLeastThree = Object.values(meats).every(meatValue => meatValue >= 3);
         console.log(atLeastThree); //returned true
 
-
         // sort the toppings alphabetically with sort()
+        console.log(toppings.sort());
+
         // sort the order totals from most expensive to least with .sort()
+        function numberSort(a, b) {
+            return b - a;
+        }
+        console.log(orderTotals.sort(numberSort));
+        // console.log(orderTotals.sort(numberSort).reverse());
+
         // Sort the prices with sort()
 
         /*
