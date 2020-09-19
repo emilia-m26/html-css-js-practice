@@ -184,7 +184,14 @@
         console.log(orderTotals.sort(numberSort));
         // console.log(orderTotals.sort(numberSort).reverse());
 
+
         // Sort the prices with sort()
+        const productsSortedByPrice = Object.entries(prices).sort(function(a, b) {
+            const aPrice = a[1];
+            const bPrice = b[1];
+            return bPrice - aPrice; //or aPrice - bPrice to be in ascending order
+        });
+        console.table(productsSortedByPrice);
 
         /*
           Looping Methods (next)
