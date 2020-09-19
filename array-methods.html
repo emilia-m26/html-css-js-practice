@@ -160,6 +160,8 @@
 
 
         // find all ratings that talk about a burger with filter()
+        const burgRatings = feedback.filter(singleFeedback => singleFeedback.comment.includes('burg'));
+        console.table(burgRatings);
         // Remove the one star rating however you like!
 
         // check if there is at least 5 of one type of meat with some()
