@@ -140,6 +140,12 @@
 
         // find the first rating that talks about a burger with find()
 
+        function findBurgRating(singleFeedback) {
+            return singleFeedback.comment.includes('burg');
+        }
+
+        const burgRating = feedback.find(findBurgRating);
+        console.log(burgRating);
 
         // find all ratings that are above 2 with filter()
         // find all ratings that talk about a burger with filter()
