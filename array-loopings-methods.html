@@ -173,6 +173,14 @@
 
         const toys = faces.map(addArms);
         console.log(toys);
+
+        //Mapping - another example
+        const fullNames = ['emilia', 'charlotte', 'liz', 'neftali', 'maria'].map(name => `${name} mena`);
+        console.table(fullNames);
+
+        //number example for mapping
+        const orderTotalsWithTax = orderTotals.map(total => (total * 1.07).toFixed(2));
+        console.log(orderTotalsWithTax);
     </script>
 </body>
 
