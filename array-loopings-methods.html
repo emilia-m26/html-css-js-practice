@@ -163,6 +163,16 @@
             console.log('-------- 🍕 -------');
         }
         toppings.forEach(logTopping);
+
+        console.clear();
+        //THE BIG THREE: Map, Filter, Reduce
+        //Mapping
+        function addArms(face) {
+            return `👋 ${face} 👋 `;
+        }
+
+        const toys = faces.map(addArms);
+        console.log(toys);
     </script>
 </body>
 
