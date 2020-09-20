@@ -217,6 +217,9 @@
             return person.age > 40;
         });
         console.table(over40); //subset of original array
+
+        const student = students.find(student => student.id === '565a');
+        console.log(student); //if there is nothing, will log undefined
     </script>
 </body>
 
