@@ -181,6 +181,29 @@
         //number example for mapping
         const orderTotalsWithTax = orderTotals.map(total => (total * 1.07).toFixed(2));
         console.log(orderTotalsWithTax);
+
+        const cleanPeople = people.map(function(person) {
+            //console.log(person)
+
+            //get their birthday
+            //timestamp
+            const birthday = new Date(person.birthday).getTime();
+            //now timestamp
+            const now = Date.now();
+            //console.log(birthday, now);
+            //const age = now - birthday; //age in milliseconds
+
+            //figure out age
+            const age = Math.floor((now - birthday) / 31536000000);
+            //console.log(age);
+
+            //return full name and bday in object
+            return {
+                age: age,
+                name: `${person.names.first} ${person.names.last}`,
+            }
+        });
+        console.table(cleanPeople);
     </script>
 </body>
 
