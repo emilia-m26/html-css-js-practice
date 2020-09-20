@@ -204,6 +204,19 @@
             }
         });
         console.table(cleanPeople);
+
+        console.clear();
+        //Filter and Find
+        const over40 = cleanPeople.filter(function(person) {
+            //console.log(person);
+            // if (person.age > 40) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+            return person.age > 40;
+        });
+        console.table(over40); //subset of original array
     </script>
 </body>
 
