@@ -136,6 +136,32 @@
         /*
           Looping Methods
         */
+
+        //.forEach (most basic loop)
+        // toppings.forEach(topping => {
+        //     console.log(topping)
+        // });
+        //same as toppings.forEach(topping => console.log(topping));
+
+        //another example to show .forEach use
+        function logTopping(topping, index, array) {
+            const nextTopping = array[index + 1];
+            const prevTopping = array[index - 1];
+
+            //log the topping
+            console.log(topping);
+            //log the prev topping if there is one
+            prevTopping ? console.log(prevTopping) : null;
+
+            //log the next topping if there is one
+            nextTopping ? console.log(nextTopping) : null;
+
+            // if its the last item in array, say goodbye
+            index === array.length - 1 ? console.log('Goodbye') : console.log('Getting next Topping');
+
+            console.log('-------- 🍕 -------');
+        }
+        toppings.forEach(logTopping);
     </script>
 </body>
 
