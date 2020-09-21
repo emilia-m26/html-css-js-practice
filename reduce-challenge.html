@@ -558,7 +558,21 @@ Mozilla
             .map(lowercase) //convert every letter to lowercase
             .reduce(instanceCounter, {}) //count instances of each letter and number
 
+        //extra - sort in ascending order of popularity
+        function sortByValue(a, b) {
+            return a[1] - b[1]; //ascending order
+            //return b[1] - a[1]; //descending order
+
+        }
+
+        const sortedResult = Object
+            .entries(result)
+            .sort(sortByValue);
+
+
         console.log(result);
+
+        console.log(sortedResult);
     </script>
 </body>
 
