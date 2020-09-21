@@ -556,7 +556,7 @@ Mozilla
             .split('') //turn into array
             .filter(isValidChar) //clean out what we don't need
             .map(lowercase) //convert every letter to lowercase
-            .reduce(instanceCounter, {}) //count instances of each letter and number
+            .reduce(instanceCounter, {}); //count instances of each letter and number
 
         //extra - sort in ascending order of popularity
         function sortByValue(a, b) {
