@@ -538,9 +538,14 @@ Mozilla
             return character.match(/[a-zA-Z0-9]/);
         }
 
+        function lowercase(character) {
+            return character.toLowerCase();
+        }
+
         const result = text
             .split('') //turn into array
             .filter(isValidChar) //clean out what we don't need
+            .map(lowercase) //convert every letter to lowercase
 
         console.log(result);
     </script>
