@@ -542,10 +542,21 @@ Mozilla
             return character.toLowerCase();
         }
 
+        function instanceCounter(counts, char) {
+            counts[char] ?
+                //if exists
+                counts[char] = counts[char] + 1 :
+                //if does not exist
+                counts[char] = 1;
+            //return so counts is available for next loop
+            return counts;
+        }
+
         const result = text
             .split('') //turn into array
             .filter(isValidChar) //clean out what we don't need
             .map(lowercase) //convert every letter to lowercase
+            .reduce(instanceCounter, {}) //count instances of each letter and number
 
         console.log(result);
     </script>
