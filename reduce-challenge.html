@@ -532,14 +532,12 @@ Mozilla
     `;
 
         const everything = text.split(''); //turn into array
-        const result = everything.filter(character => {
+        function isValidChar(character) {
             //if character is a-z,A-Z, or 0-9, then we want to keep it
-            if (character.match(/[a-zA-Z0-9]/)) {
-                return true;
-            } else {
-                return false;
-            }
-        });
+            return character.match(/[a-zA-Z0-9]/);
+        }
+
+        const result = everything.filter(isValidChar);
 
         console.log(result);
     </script>
