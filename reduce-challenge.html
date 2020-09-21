@@ -531,13 +531,16 @@ Mozilla
 © 2005-2020 Mozilla and individual contributors. Content is available under these licenses.
     `;
 
-        const everything = text.split(''); //turn into array
+        //const everything = text.split(''); //turn into array
+
         function isValidChar(character) {
             //if character is a-z,A-Z, or 0-9, then we want to keep it
             return character.match(/[a-zA-Z0-9]/);
         }
 
-        const result = everything.filter(isValidChar);
+        const result = text
+            .split('') //turn into array
+            .filter(isValidChar) //clean out what we don't need
 
         console.log(result);
     </script>
