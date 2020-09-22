@@ -2,8 +2,7 @@ const video = document.querySelector('.webcam');
 
 const canvas = document.querySelector('.video');
 const ctx = canvas.getContext('2d');
-ctx.strokeStyle = '#ffc600';
-ctx.lineWidth = 2;
+
 
 const faceCanvas = document.querySelector('.face');
 const facectx = canvas.getContext('2d');
@@ -44,6 +43,8 @@ function drawFace(face) {
     //console.log(face)
     const { width, height, top, left } = face.boundingBox;
     //console.log({width, height, top, left});
+    ctx.strokeStyle = 'turquoise';
+    ctx.lineWidth = 2;
     ctx.strokeRect(left, top, width, height);
 }
 
