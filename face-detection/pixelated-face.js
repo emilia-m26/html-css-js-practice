@@ -21,6 +21,12 @@ async function populateVideo() {
     video.srcObject = stream;
     //play vid
     await video.play();
+    //size canvases to be same size as video
+    //console.log(video.videoWidth, video.videoHeight);
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    faceCanvas.width = video.videoWidth;
+    faceCanvas.height = video.videoHeight;
 }
 
 populateVideo();
