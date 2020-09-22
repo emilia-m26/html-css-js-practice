@@ -1,0 +1,17 @@
+const video = document.querySelector('.webcam');
+const canvas = document.querySelector('.video');
+const ctx = canvas.getContext('2d');
+const faceCanvas = document.querySelector('.face');
+const facectx = canvas.getContext('2d');
+const faceDetector = new window.FaceDetector();
+console.log(video, canvas, faceCanvas, faceDetector); //write function that will populate users video
+
+function populateVideo() {
+  const stream = navigator.mediaDevices.getUserMedia({
+    video: {
+      width: 1280,
+      height: 720
+    }
+  });
+  console.log(stream);
+}
