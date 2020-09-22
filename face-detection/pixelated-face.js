@@ -5,10 +5,12 @@ const ctx = canvas.getContext('2d');
 
 
 const faceCanvas = document.querySelector('.face');
-const facectx = canvas.getContext('2d');
+const faceCtx = faceCanvas.getContext('2d');
 
 const faceDetector = new window.FaceDetector({ fastMode: true });
 // console.log(video, canvas, faceCanvas, faceDetector);
+const SIZE = 10;
+const SCALE = 1.5;
 
 //write function that will populate users video
 
@@ -34,8 +36,10 @@ async function detect() {
     //pass it image, video, or canvas - our case the video
     const faces = await faceDetector.detect(video);
     console.log(faces);
-    //ask browser when next animation frame is, and tell it to run - recursion - when a function calls itself
+    
+    faces.forEach(censor);
     faces.forEach(drawFace);
+    //ask browser when next animation frame is, and tell it to run - recursion - when a function calls itself
     requestAnimationFrame(detect);
 }
 
@@ -43,9 +47,46 @@ function drawFace(face) {
     //console.log(face)
     const { width, height, top, left } = face.boundingBox;
     //console.log({width, height, top, left});
+    ctx.clearRect(0,0,canvas.width, canvas.height);
     ctx.strokeStyle = 'turquoise';
     ctx.lineWidth = 2;
     ctx.strokeRect(left, top, width, height);
+}
+
+function censor({ boundingBox: face }) {
+    //console.log(face);
+    faceCtx.imageSmoothEnabled = false;
+    faceCtx.clearRect(0,0,faceCanvas.width, faceCanvas.height);
+//draw small face
+    faceCtx.drawImage(
+    //5 source args - pulling out
+    video,
+    face.x,
+    face.y,
+    face.width,
+    face.height,
+    // 4 draw args
+    face.x,
+    face.y,
+    SIZE,
+    SIZE
+    );
+//take face back out and draw it at normal size
+const width = face.width * SCALE;
+const height = face.height * SCALE;
+
+    faceCtx.drawImage(
+        faceCanvas,
+        face.x,
+        face.y,
+        SIZE,
+        SIZE,
+        //drawing args
+        face.x,
+        face.y,
+        width,
+        height
+    )
 }
 
 populateVideo().then(detect);
