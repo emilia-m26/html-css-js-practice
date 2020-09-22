@@ -6,7 +6,7 @@ const ctx = canvas.getContext('2d');
 const faceCanvas = document.querySelector('.face');
 const facectx = canvas.getContext('2d');
 
-const faceDetector = new window.FaceDetector();
+const faceDetector = new window.FaceDetector({ fastMode: true });
 // console.log(video, canvas, faceCanvas, faceDetector);
 
 //write function that will populate users video
@@ -29,4 +29,19 @@ async function populateVideo() {
     faceCanvas.height = video.videoHeight;
 }
 
-populateVideo();
+async function detect() {
+    //pass it image, video, or canvas - our case the video
+    const faces = await faceDetector.detect(video);
+    console.log(faces);
+    //ask browser when next animation frame is, and tell it to run - recursion - when a function calls itself
+    faces.forEach(drawFace);
+    requestAnimationFrame(detect);
+}
+
+function drawFace(face) {
+    //console.log(face)
+    const { width, height, top, left } = face.boundingBox;
+    //console.log({width, height, top, left});
+}
+
+populateVideo().then(detect);
