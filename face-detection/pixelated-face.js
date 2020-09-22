@@ -10,7 +10,7 @@ const faceCtx = faceCanvas.getContext('2d');
 const faceDetector = new window.FaceDetector({ fastMode: true });
 // console.log(video, canvas, faceCanvas, faceDetector);
 const SIZE = 10;
-const SCALE = 1.35;
+const SCALE = 1.25;
 
 //write function that will populate users video
 
