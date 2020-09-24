@@ -28,8 +28,13 @@ const filters = {
     //if nothing, use regular letter
         return letter;
     },
-    
-    unable(letter) {},
+    unable(letter) {
+        const random = Math.floor(Math.random() * 3);
+        if (letter == ' ' && random === 2) {
+            return '...';
+        }
+        return letter;
+    },
 }
 
 
@@ -47,4 +52,8 @@ function transformText(text) {
 
 //listener for input event
 textArea.addEventListener('input', event => transformText(event.target.value) );
+
+filterInputs.forEach( input => input.addEventListener('input', event => {
+    transformText(textArea.value);
+}))
 
