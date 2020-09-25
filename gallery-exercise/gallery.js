@@ -23,12 +23,13 @@ function showImage(element){
     //update modal with this info
     console.log(element);
 }
+//refactor
+// function handleImageClick(event){
+//     showImage(event.currentTarget);
+// }
 
-function handleImageClick(event){
-    showImage(event.currentTarget);
-}
-
-    images.forEach(image => image.addEventListener('click', handleImageClick));
+    images.forEach(image => image.addEventListener('click', event => showImage(event.currentTarget))
+    );
 
 }
 
