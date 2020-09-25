@@ -49,15 +49,10 @@ function handleClickOutside(event) {
 }
 
 function handleKeyUp(event){
-    if (event.key === 'Escape') {
-        closeModal();
-    }
-    if (event.key === 'ArrowRight') {
-        showNextImage();
-    }
-    if (event.key === 'ArrowLeft') {
-        showPrevImage();
-    }
+    //using return stops functionf rom running if previous was matched
+    if (event.key === 'Escape') return closeModal();
+    if (event.key === 'ArrowRight') return showNextImage();
+    if (event.key === 'ArrowLeft') return showPrevImage();
 }
 
 function showNextImage() {
@@ -94,6 +89,15 @@ function showImage(element){
 images.forEach(image => image.addEventListener('click', event => showImage(event.currentTarget))
     );
 
+images.forEach(image =>{
+    //loop each image, attach listener for each
+    image.addEventListener('keyup', event => {
+        //check enter if keyuo and if was, show image
+        if (event.key === 'Enter') {
+            showImage(event.currentImage);
+        }
+    })
+});
 modal.addEventListener('click', handleClickOutside);
 
 }
