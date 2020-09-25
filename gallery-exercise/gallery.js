@@ -39,6 +39,12 @@ function handleClickOutside(event) {
     }
 }
 
+function handleKeyUp(event){
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+}
+
 
 //when image clicked, show modal and image clicked on
 function showImage(element){
@@ -66,6 +72,7 @@ images.forEach(image => image.addEventListener('click', event => showImage(event
     );
 
 modal.addEventListener('click', handleClickOutside);
+window.addEventListener('keyup', handleKeyUp);
 
 }
 
