@@ -53,7 +53,7 @@ function handleKeyUp(event){
 }
 
 function showNextImage() {
-    showImage(currentImage.nextElementSibling);
+    showImage(currentImage.nextElementSibling || gallery.firstElementChild);
 }
 
 
