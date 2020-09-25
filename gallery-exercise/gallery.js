@@ -52,6 +52,12 @@ function handleKeyUp(event){
     if (event.key === 'Escape') {
         closeModal();
     }
+    if (event.key === 'ArrowRight') {
+        showNextImage();
+    }
+    if (event.key === 'ArrowLeft') {
+        showPrevImage();
+    }
 }
 
 function showNextImage() {
