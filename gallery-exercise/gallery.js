@@ -13,6 +13,20 @@ function Gallery(gallery) {
     const modal = document.querySelector('.modal');
     const prevButton = modal.querySelector('.prev');
     const nextButton = modal.querySelector('.next');
+    //keep track of what the currently open image is
+    let currentImage;
+
+
+//function to open modal to user
+function openModal(){
+    console.info('Opening Modal...');
+    //first check if modal is already open
+    if(modal.matches('.open')) {
+        console.info('Modal already open...');
+        return; //stop function from running
+    }
+    modal.classList.add('open');
+}
 
 //when image clicked, show modal and image clicked on
 function showImage(element){
@@ -25,7 +39,9 @@ function showImage(element){
     modal.querySelector('img').src = element.src;
     modal.querySelector('h2').textContent = element.title;
     modal.querySelector('figure p').textContent = element.dataset.description;
-
+    //to track current image
+    currentImage = element;
+    openModal();
 }
 //refactor
 // function handleImageClick(event){
