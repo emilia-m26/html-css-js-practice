@@ -22,13 +22,17 @@ function showImage(element){
     }
     //update modal with this info
     console.log(element);
+    modal.querySelector('img').src = element.src;
+    modal.querySelector('h2').textContent = element.title;
+    modal.querySelector('figure p').textContent = element.dataset.description;
+
 }
 //refactor
 // function handleImageClick(event){
 //     showImage(event.currentTarget);
 // }
 
-    images.forEach(image => image.addEventListener('click', event => showImage(event.currentTarget))
+images.forEach(image => image.addEventListener('click', event => showImage(event.currentTarget))
     );
 
 }
