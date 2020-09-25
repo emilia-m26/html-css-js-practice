@@ -53,7 +53,7 @@ function handleKeyUp(event){
 }
 
 function showNextImage() {
-
+    console.log(currentImage.nextElementSibling);
 }
 
 
