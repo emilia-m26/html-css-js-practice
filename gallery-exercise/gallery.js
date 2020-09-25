@@ -13,6 +13,23 @@ function Gallery(gallery) {
     const modal = document.querySelector('.modal');
     const prevButton = modal.querySelector('.prev');
     const nextButton = modal.querySelector('.next');
+
+//when image clicked, show modal and image clicked on
+function showImage(element){
+    if(!element) {
+        console.info('no image to show');
+        return;
+    }
+    //update modal with this info
+    console.log(element);
+}
+
+function handleImageClick(event){
+    showImage(event.currentTarget);
+}
+
+    images.forEach(image => image.addEventListener('click', handleImageClick));
+
 }
 
 const gallery1 = Gallery(document.querySelector('.gallery1'));
