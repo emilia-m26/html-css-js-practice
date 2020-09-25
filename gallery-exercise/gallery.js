@@ -28,6 +28,18 @@ function openModal(){
     modal.classList.add('open');
 }
 
+function closeModal() {
+    modal.classList.remove('open');
+
+}
+
+function handleClickOutside(event) {
+    if (event.target === event.currentTarget) {
+        closeModal();
+    }
+}
+
+
 //when image clicked, show modal and image clicked on
 function showImage(element){
     if(!element) {
@@ -48,8 +60,12 @@ function showImage(element){
 //     showImage(event.currentTarget);
 // }
 
+
+//event listeners area
 images.forEach(image => image.addEventListener('click', event => showImage(event.currentTarget))
     );
+
+modal.addEventListener('click', handleClickOutside);
 
 }
 
