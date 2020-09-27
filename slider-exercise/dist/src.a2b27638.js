@@ -126,7 +126,11 @@ function Slider(slider) {
 
   var current;
   var prev;
-  var next;
+  var next; //select elements needed for slider
+
+  var slides = slider.querySelector('.slides');
+  var prevButton = document.querySelector('.goToPrev');
+  var nextButton = document.querySelector('.goToNext');
 }
 
 var mySlider = Slider(document.querySelector('.slider'));
