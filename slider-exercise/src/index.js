@@ -44,13 +44,16 @@ function move(direction){
         [prev, current, next] = [current, next, next.nextElementSibling];
     }
     applyClasses();
-
-  
 }
 
 //when slider created, run functions below
 startSlider();
 applyClasses();
+
+//event listeners
+prevButton.addEventListener('click', () => move('back'));
+nextButton.addEventListener('click', move);
+ 
 
 }
 
