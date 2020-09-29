@@ -15,10 +15,27 @@ function Gallery(gallery) {
     this.prevButton = this.modal.querySelector('.prev');
     this.nextButton = this.modal.querySelector('.next');
     
+//event listeners area
+this.images.forEach(image => image.addEventListener('click', event => showImage(event.currentTarget))
+    );
 
+this.images.forEach(image =>{
+    //loop each image, attach listener for each
+    image.addEventListener('keyup', event => {
+        //check enter if keyup and if was, show image
+        if (event.key === 'Enter') {
+            showImage(event.currentImage);
+        }
+    })
+});
+
+
+this.modal.addEventListener('click', handleClickOutside);
+
+}
 
 //function to open modal to user
-function openModal(){
+Gallery.prototype.openModal = function() {
     console.info('Opening Modal...');
     //first check if modal is already open
     if(this.modal.matches('.open')) {
@@ -33,7 +50,7 @@ function openModal(){
     this.prevButton.addEventListener('click', showPrevImage);
 }
 
-function closeModal() {
+Gallery.prototype.closeModal = function() {
     this.modal.classList.remove('open');
     ///removing when close modal
     window.removeEventListener('keyup', handleKeyUp);
@@ -42,30 +59,30 @@ function closeModal() {
 
 }
 
-function handleClickOutside(event) {
+Gallery.prototype.handleClickOutside = function(event) {
     if (event.target === event.currentTarget) {
         closeModal();
     }
 }
 
-function handleKeyUp(event){
+Gallery.prototype.handleKeyUp = function(event){
     //using return stops functionf rom running if previous was matched
     if (event.key === 'Escape') return closeModal();
     if (event.key === 'ArrowRight') return showNextImage();
     if (event.key === 'ArrowLeft') return showPrevImage();
 }
 
-function showNextImage() {
+Gallery.prototype.showNextImage = function() {
     showImage(currentImage.nextElementSibling || gallery.firstElementChild);
 }
 
-function showPrevImage() {
+Gallery.prototype.showPrevImage = function() {
     showImage(currentImage.previousElementSibling || gallery.lastElementChild);
 }
 
 
 //when image clicked, show modal and image clicked on
-function showImage(element){
+Gallery.prototype.showImage = function(element){
     if(!element) {
         console.info('no image to show');
         return;
@@ -85,22 +102,8 @@ function showImage(element){
 // }
 
 
-//event listeners area
-this.images.forEach(image => image.addEventListener('click', event => showImage(event.currentTarget))
-    );
 
-this.images.forEach(image =>{
-    //loop each image, attach listener for each
-    image.addEventListener('keyup', event => {
-        //check enter if keyuo and if was, show image
-        if (event.key === 'Enter') {
-            showImage(event.currentImage);
-        }
-    })
-});
-this.modal.addEventListener('click', handleClickOutside);
 
-}
 
 const gallery1 = new Gallery(document.querySelector('.gallery1'));
 const gallery2 = new Gallery(document.querySelector('.gallery2'));
