@@ -14,9 +14,16 @@ function Gallery(gallery) {
     this.modal = document.querySelector('.modal');
     this.prevButton = this.modal.querySelector('.prev');
     this.nextButton = this.modal.querySelector('.next');
+
+//bind our methods to the instance when we need them
+//explicity supply the this we want it equal to
+this.showNextImage = this.showNextImage.bind(this);
+this.showPrevImage = this.showPrevImage.bind(this);
+
+
     
 //event listeners area
-this.images.forEach(image => image.addEventListener('click', event => showImage(event.currentTarget))
+this.images.forEach(image => image.addEventListener('click', event => this.showImage(event.currentTarget))
     );
 
 this.images.forEach(image =>{
@@ -24,13 +31,13 @@ this.images.forEach(image =>{
     image.addEventListener('keyup', event => {
         //check enter if keyup and if was, show image
         if (event.key === 'Enter') {
-            showImage(event.currentImage);
+            this.showImage(event.currentImage);
         }
     })
 });
 
 
-this.modal.addEventListener('click', handleClickOutside);
+this.modal.addEventListener('click', this.handleClickOutside);
 
 }
 
@@ -45,17 +52,17 @@ Gallery.prototype.openModal = function() {
     this.modal.classList.add('open');
 
     //event listeners to be bound when open modal
-    window.addEventListener('keyup', handleKeyUp);
-    this.nextButton.addEventListener('click', showNextImage);
-    this.prevButton.addEventListener('click', showPrevImage);
+    window.addEventListener('keyup', this.handleKeyUp);
+    this.nextButton.addEventListener('click', this.showNextImage);
+    this.prevButton.addEventListener('click', this.showPrevImage);
 }
 
 Gallery.prototype.closeModal = function() {
     this.modal.classList.remove('open');
     ///removing when close modal
-    window.removeEventListener('keyup', handleKeyUp);
-    this.nextButton.removeEventListener('click', showNextImage);
-    this.prevButton.removeEventListener('click', showPrevImage);
+    window.removeEventListener('keyup', this.handleKeyUp);
+    this.nextButton.removeEventListener('click', this.showNextImage);
+    this.prevButton.removeEventListener('click', this.showPrevImage);
 
 }
 
@@ -67,17 +74,17 @@ Gallery.prototype.handleClickOutside = function(event) {
 
 Gallery.prototype.handleKeyUp = function(event){
     //using return stops functionf rom running if previous was matched
-    if (event.key === 'Escape') return closeModal();
-    if (event.key === 'ArrowRight') return showNextImage();
-    if (event.key === 'ArrowLeft') return showPrevImage();
+    if (event.key === 'Escape') return this.closeModal();
+    if (event.key === 'ArrowRight') return this.showNextImage();
+    if (event.key === 'ArrowLeft') return this.showPrevImage();
 }
 
 Gallery.prototype.showNextImage = function() {
-    showImage(currentImage.nextElementSibling || gallery.firstElementChild);
+    this.showImage(this.currentImage.nextElementSibling || this.gallery.firstElementChild);
 }
 
 Gallery.prototype.showPrevImage = function() {
-    showImage(currentImage.previousElementSibling || gallery.lastElementChild);
+    this.showImage(this.currentImage.previousElementSibling || this.gallery.lastElementChild);
 }
 
 
@@ -94,7 +101,7 @@ Gallery.prototype.showImage = function(element){
     this.modal.querySelector('figure p').textContent = element.dataset.description;
     //to track current image
     this.currentImage = element;
-    openModal();
+    this.openModal();
 }
 //refactor
 // function handleImageClick(event){
