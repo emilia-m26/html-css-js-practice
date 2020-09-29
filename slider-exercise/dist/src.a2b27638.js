@@ -122,7 +122,7 @@ function Slider(slider) {
   //checking if passed in an actual html element
   if (!(slider instanceof Element)) {
     throw new Error('No slider passed in');
-  } //create variables for working with slider
+  } //create variables for working with slider - variables that begin empty
 
 
   var current;
