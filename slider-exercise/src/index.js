@@ -1,4 +1,5 @@
 function Slider(slider) {
+    //checking if passed in an actual html element
     if (!(slider instanceof Element)) {
         throw new Error('No slider passed in');    
     }

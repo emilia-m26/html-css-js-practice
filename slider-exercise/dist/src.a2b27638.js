@@ -119,6 +119,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"src/index.js":[function(require,module,exports) {
 function Slider(slider) {
+  //checking if passed in an actual html element
   if (!(slider instanceof Element)) {
     throw new Error('No slider passed in');
   } //create variables for working with slider
@@ -163,7 +164,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63345" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57730" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
