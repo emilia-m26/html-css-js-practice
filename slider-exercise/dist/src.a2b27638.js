@@ -132,6 +132,14 @@ function Slider(slider) {
   var slides = slider.querySelector('.slides');
   var prevButton = document.querySelector('.goToPrev');
   var nextButton = document.querySelector('.goToNext');
+
+  function startSlider() {
+    current = slider.querySelector('.current') || slides.firstElementChild;
+    console.log(current);
+  } //when slider created, run startSlider function
+
+
+  startSlider();
 }
 
 var mySlider = Slider(document.querySelector('.slider'));
