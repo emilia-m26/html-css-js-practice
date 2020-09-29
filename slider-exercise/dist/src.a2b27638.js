@@ -125,8 +125,8 @@ function Slider(slider) {
   } //create variables for working with slider - variables that begin empty
 
 
-  var current;
   var prev;
+  var current;
   var next; //select elements needed for slider
 
   var slides = slider.querySelector('.slides');
@@ -144,6 +144,35 @@ function Slider(slider) {
     current.classList.add('current');
     prev.classList.add('prev');
     next.classList.add('next');
+  }
+
+  function move(direction) {
+    var _prev$classList, _current$classList, _next$classList;
+
+    //strip all classes off current slides
+    var classesToRemove = ['prev', 'current', 'next'];
+
+    (_prev$classList = prev.classList).remove.apply(_prev$classList, classesToRemove);
+
+    (_current$classList = current.classList).remove.apply(_current$classList, classesToRemove);
+
+    (_next$classList = next.classList).remove.apply(_next$classList, classesToRemove);
+
+    if (direction === 'back') {
+      /* make array of new values,
+      destructure them over and into prev, current and next variables*/
+      var _ref = [prev.previousElementSibling, prev, current];
+      prev = _ref[0];
+      current = _ref[1];
+      next = _ref[2];
+    } else {
+      var _ref2 = [current, next, next.nextElementSibling];
+      prev = _ref2[0];
+      current = _ref2[1];
+      next = _ref2[2];
+    }
+
+    applyClasses();
   } //when slider created, run functions below
 
 
