@@ -161,12 +161,14 @@ function Slider(slider) {
     if (direction === 'back') {
       /* make array of new values,
       destructure them over and into prev, current and next variables*/
-      var _ref = [prev.previousElementSibling, prev, current];
+      var _ref = [
+      /*get prev slide, if none then get last slide from entire slider to wrap */
+      prev.previousElementSibling || slides.lastElementChild, prev, current];
       prev = _ref[0];
       current = _ref[1];
       next = _ref[2];
     } else {
-      var _ref2 = [current, next, next.nextElementSibling];
+      var _ref2 = [current, next, next.nextElementSibling || slides.firstElementChild];
       prev = _ref2[0];
       current = _ref2[1];
       next = _ref2[2];

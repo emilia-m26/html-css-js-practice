@@ -38,10 +38,12 @@ function move(direction){
     if(direction === 'back') {
         /* make array of new values,
         destructure them over and into prev, current and next variables*/
-        [prev, current, next] = [prev.previousElementSibling, prev, current];
+        [prev, current, next] = [
+            /*get prev slide, if none then get last slide from entire slider to wrap */
+            prev.previousElementSibling || slides.lastElementChild, prev, current];
 
     } else {
-        [prev, current, next] = [current, next, next.nextElementSibling];
+        [prev, current, next] = [current, next, next.nextElementSibling || slides.firstElementChild]; //get next slide, if none then first lside from entire slider to wrap
     }
     applyClasses();
 }
