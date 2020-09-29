@@ -137,10 +137,18 @@ function Slider(slider) {
     current = slider.querySelector('.current') || slides.firstElementChild;
     prev = current.previousElementSibling || slides.lastElementChild;
     next = current.nextElementSibling || slides.firstElementChild;
-  } //when slider created, run startSlider function
+    console.log(current, prev, next);
+  }
+
+  function applyClasses() {
+    current.classList.add('current');
+    prev.classList.add('prev');
+    next.classList.add('next');
+  } //when slider created, run functions below
 
 
   startSlider();
+  applyClasses();
 }
 
 var mySlider = Slider(document.querySelector('.slider'));

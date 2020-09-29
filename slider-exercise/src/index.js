@@ -17,10 +17,19 @@ function startSlider(){
     current = slider.querySelector('.current') || slides.firstElementChild;
     prev = current.previousElementSibling || slides.lastElementChild;
     next = current.nextElementSibling || slides.firstElementChild;
+
+    console.log(current, prev, next);
 }
 
-//when slider created, run startSlider function
+function applyClasses(){
+    current.classList.add('current');
+    prev.classList.add('prev');
+    next.classList.add('next');
+}
+
+//when slider created, run functions below
 startSlider();
+applyClasses();
 
 }
 
