@@ -19,7 +19,8 @@ function Gallery(gallery) {
 //explicity supply the this we want it equal to
 this.showNextImage = this.showNextImage.bind(this);
 this.showPrevImage = this.showPrevImage.bind(this);
-
+this.handleKeyUp= this.handleKeyUp.bind(this);
+this.handleClickOutside = this.handleClickOutside.bind(this);
 
     
 //event listeners area
@@ -68,7 +69,7 @@ Gallery.prototype.closeModal = function() {
 
 Gallery.prototype.handleClickOutside = function(event) {
     if (event.target === event.currentTarget) {
-        closeModal();
+        this.closeModal();
     }
 }
 
