@@ -135,7 +135,8 @@ function Slider(slider) {
 
   function startSlider() {
     current = slider.querySelector('.current') || slides.firstElementChild;
-    console.log(current);
+    prev = current.previousElementSibling || slides.lastElementChild;
+    console.log(prev);
   } //when slider created, run startSlider function
 
 
