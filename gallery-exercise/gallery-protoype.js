@@ -14,8 +14,7 @@ function Gallery(gallery) {
     this.modal = document.querySelector('.modal');
     this.prevButton = this.modal.querySelector('.prev');
     this.nextButton = this.modal.querySelector('.next');
-    //keep track of what the currently open image is
-    let currentImage;
+    
 
 
 //function to open modal to user
@@ -77,7 +76,7 @@ function showImage(element){
     this.modal.querySelector('h2').textContent = element.title;
     this.modal.querySelector('figure p').textContent = element.dataset.description;
     //to track current image
-    currentImage = element;
+    this.currentImage = element;
     openModal();
 }
 //refactor
@@ -103,5 +102,7 @@ this.modal.addEventListener('click', handleClickOutside);
 
 }
 
-const gallery1 = Gallery(document.querySelector('.gallery1'));
-const gallery2 = Gallery(document.querySelector('.gallery2'));
+const gallery1 = new Gallery(document.querySelector('.gallery1'));
+const gallery2 = new Gallery(document.querySelector('.gallery2'));
+
+console.log(gallery1, gallery2);
