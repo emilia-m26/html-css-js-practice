@@ -10,8 +10,8 @@ function Slider(slider) {
 
     //select elements needed for slider
     const slides = slider.querySelector('.slides');
-    const prevButton = document.querySelector('.goToPrev');
-    const nextButton = document.querySelector('.goToNext');
+    const prevButton = slider.querySelector('.goToPrev');
+    const nextButton = slider.querySelector('.goToNext');
 
 function startSlider(){
     current = slider.querySelector('.current') || slides.firstElementChild;
