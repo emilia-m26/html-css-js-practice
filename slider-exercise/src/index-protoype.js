@@ -55,7 +55,7 @@ Slider.prototype.move = function(direction){
     } else {
         [this.prev, this.current, this.next] = [this.current, this.next, this.next.nextElementSibling || this.slides.firstElementChild]; //get next slide, if none then first lside from entire slider to wrap
     }
-    applyClasses();
+    this.applyClasses();
 }
 
 const mySlider = new Slider(document.querySelector('.slider')

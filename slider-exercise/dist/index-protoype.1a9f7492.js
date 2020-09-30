@@ -181,7 +181,7 @@ Slider.prototype.move = function (direction) {
     this.next = _ref2[2];
   }
 
-  applyClasses();
+  this.applyClasses();
 };
 
 var mySlider = new Slider(document.querySelector('.slider'));
