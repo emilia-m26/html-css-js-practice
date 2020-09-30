@@ -6,6 +6,7 @@ function Slider(slider) {
 
     //select elements needed for slider
     this.slides = slider.querySelector('.slides');
+    this.slider = slider;
     const prevButton = slider.querySelector('.goToPrev');
     const nextButton = slider.querySelector('.goToNext');
 
@@ -16,8 +17,9 @@ this.startSlider();
 this.applyClasses();
 
 //event listeners
-this.prevButton.addEventListener('click', () => this.move('back'));
-this.nextButton.addEventListener('click', this.move);
+this.move = this.move.bind(this);
+prevButton.addEventListener('click', () => this.move('back'));
+nextButton.addEventListener('click', () => this.move());
  
 
 }

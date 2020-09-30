@@ -128,16 +128,20 @@ function Slider(slider) {
 
 
   this.slides = slider.querySelector('.slides');
+  this.slider = slider;
   var prevButton = slider.querySelector('.goToPrev');
   var nextButton = slider.querySelector('.goToNext'); //when slider created, run functions below
 
   this.startSlider();
   this.applyClasses(); //event listeners
 
-  this.prevButton.addEventListener('click', function () {
+  this.move = this.move.bind(this);
+  prevButton.addEventListener('click', function () {
     return _this.move('back');
   });
-  this.nextButton.addEventListener('click', this.move);
+  nextButton.addEventListener('click', function () {
+    return _this.move();
+  });
 }
 
 Slider.prototype.startSlider = function () {
