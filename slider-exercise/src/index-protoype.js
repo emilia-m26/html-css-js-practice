@@ -12,19 +12,19 @@ function Slider(slider) {
 
 
 //when slider created, run functions below
-startSlider();
-applyClasses();
+this.startSlider();
+this.applyClasses();
 
 //event listeners
-this.prevButton.addEventListener('click', () => move('back'));
-this.nextButton.addEventListener('click', move);
+this.prevButton.addEventListener('click', () => this.move('back'));
+this.nextButton.addEventListener('click', this.move);
  
 
 }
 
 
 Slider.prototype.startSlider = function(){
-    this.current = slider.querySelector('.current') || this.slides.firstElementChild;
+    this.current = this.slider.querySelector('.current') || this.slides.firstElementChild;
     this.prev = this.current.previousElementSibling || this.slides.lastElementChild;
     this.next = this.current.nextElementSibling || this.slides.firstElementChild;
 

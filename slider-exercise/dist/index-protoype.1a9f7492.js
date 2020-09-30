@@ -119,6 +119,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"src/index-protoype.js":[function(require,module,exports) {
 function Slider(slider) {
+  var _this = this;
+
   //checking if passed in an actual html element
   if (!(slider instanceof Element)) {
     throw new Error('No slider passed in');
@@ -129,17 +131,17 @@ function Slider(slider) {
   var prevButton = slider.querySelector('.goToPrev');
   var nextButton = slider.querySelector('.goToNext'); //when slider created, run functions below
 
-  startSlider();
-  applyClasses(); //event listeners
+  this.startSlider();
+  this.applyClasses(); //event listeners
 
   this.prevButton.addEventListener('click', function () {
-    return move('back');
+    return _this.move('back');
   });
-  this.nextButton.addEventListener('click', move);
+  this.nextButton.addEventListener('click', this.move);
 }
 
 Slider.prototype.startSlider = function () {
-  this.current = slider.querySelector('.current') || this.slides.firstElementChild;
+  this.current = this.slider.querySelector('.current') || this.slides.firstElementChild;
   this.prev = this.current.previousElementSibling || this.slides.lastElementChild;
   this.next = this.current.nextElementSibling || this.slides.firstElementChild;
   console.log(this.current, this.prev, this.next);
