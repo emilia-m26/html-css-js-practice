@@ -117,79 +117,80 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"src/index-protoype.js":[function(require,module,exports) {
+function Slider(slider) {
+  //checking if passed in an actual html element
+  if (!(slider instanceof Element)) {
+    throw new Error('No slider passed in');
+  } //create variables for working with slider - variables that begin empty
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+
+  var prev;
+  var current;
+  var next; //select elements needed for slider
+
+  var slides = slider.querySelector('.slides');
+  var prevButton = slider.querySelector('.goToPrev');
+  var nextButton = slider.querySelector('.goToNext');
+
+  function startSlider() {
+    current = slider.querySelector('.current') || slides.firstElementChild;
+    prev = current.previousElementSibling || slides.lastElementChild;
+    next = current.nextElementSibling || slides.firstElementChild;
+    console.log(current, prev, next);
   }
 
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
+  function applyClasses() {
+    current.classList.add('current');
+    prev.classList.add('prev');
+    next.classList.add('next');
   }
 
-  return '/';
-}
+  function move(direction) {
+    var _prev$classList, _current$classList, _next$classList;
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
+    //strip all classes off current slides
+    var classesToRemove = ['prev', 'current', 'next'];
 
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
+    (_prev$classList = prev.classList).remove.apply(_prev$classList, classesToRemove);
 
-function updateLink(link) {
-  var newLink = link.cloneNode();
+    (_current$classList = current.classList).remove.apply(_current$classList, classesToRemove);
 
-  newLink.onload = function () {
-    link.remove();
-  };
+    (_next$classList = next.classList).remove.apply(_next$classList, classesToRemove);
 
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
+    if (direction === 'back') {
+      /* make array of new values,
+      destructure them over and into prev, current and next variables*/
+      var _ref = [
+      /*get prev slide, if none then get last slide from entire slider to wrap */
+      prev.previousElementSibling || slides.lastElementChild, prev, current];
+      prev = _ref[0];
+      current = _ref[1];
+      next = _ref[2];
+    } else {
+      var _ref2 = [current, next, next.nextElementSibling || slides.firstElementChild];
+      prev = _ref2[0];
+      current = _ref2[1];
+      next = _ref2[2];
     }
 
-    cssTimeout = null;
-  }, 50);
+    applyClasses();
+  } //when slider created, run functions below
+
+
+  startSlider();
+  applyClasses(); //event listeners
+
+  prevButton.addEventListener('click', function () {
+    return move('back');
+  });
+  nextButton.addEventListener('click', move);
 }
 
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel/src/builtins/bundle-url.js"}],"style.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel/src/builtins/css-loader.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var mySlider = new Slider(document.querySelector('.slider'));
+var dogSlider = new Slider(document.querySelector('.dog-slider'));
+console.log(mySlider, dogSlider);
+},{}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +394,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.97fcb138.js.map
+},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","src/index-protoype.js"], null)
+//# sourceMappingURL=/index-protoype.1a9f7492.js.map

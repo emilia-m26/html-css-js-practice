@@ -59,7 +59,9 @@ nextButton.addEventListener('click', move);
 
 }
 
-const mySlider = Slider(document.querySelector('.slider')
+const mySlider = new Slider(document.querySelector('.slider')
 );
 
-const dogSlider = Slider(document.querySelector('.dog-slider'));
+const dogSlider = new Slider(document.querySelector('.dog-slider'));
+
+console.log(mySlider, dogSlider);
