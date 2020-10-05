@@ -12,6 +12,10 @@
     <script>
         function makePizza(toppings) {
             const pizzaPromise = new Promise(function(resolve, reject) {
+                //reject if toppings include pineapple
+                if (toppings.includes('pineapple')) {
+                    reject('Seriously?')
+                }
                 //wait for pizza to cook
                 setTimeout(function() {
                         //when you are ready, resolve this promise
@@ -34,7 +38,7 @@
         //     console.log(pizza);
         // });
 
-        makePizza(['canadian bacon', 'pineapples'])
+        makePizza(['canadian bacon', 'pineapple'])
             .then(function(pizza) {
                 console.log(pizza);
                 return makePizza(['pepperoni']);
