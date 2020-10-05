@@ -22,17 +22,30 @@
             return pizzaPromise;
         }
 
-        const pepperoniPromise = makePizza(['pepperoni']);
+        // const pepperoniPromise = makePizza(['pepperoni']);
 
-        const hawaiianPromise = makePizza(['canadian bacon', 'pineapples']);
+        // const hawaiianPromise = makePizza(['canadian bacon', 'pineapples']);
 
-        console.log(hawaiianPromise);
+        // console.log(hawaiianPromise);
 
-        //.then to access returned value
-        hawaiianPromise.then(function(pizza) {
-            console.log('Got it!');
-            console.log(pizza);
-        });
+        // //.then to access returned value
+        // hawaiianPromise.then(function(pizza) {
+        //     console.log('Got it!');
+        //     console.log(pizza);
+        // });
+
+        makePizza(['canadian bacon', 'pineapples'])
+            .then(function(pizza) {
+                console.log(pizza);
+                return makePizza(['pepperoni']);
+            })
+            .then(function(pizza) {
+                console.log(pizza);
+                return makePizza(['sausage', 'chicken', 'bacon'])
+            })
+            .then(function(pizza) {
+                console.log(pizza);
+            })
     </script>
 </body>
 
