@@ -12,9 +12,12 @@
     <script>
         function makePizza(toppings) {
             const pizzaPromise = new Promise(function(resolve, reject) {
-                //when you are ready, resilve this promise
-                resolve(`Here is your pizza 🍕 with your toppings ${toppings.join(', ')}`);
-                //if went wrong, reject promise
+                //wait for pizza to cook
+                setTimeout(function() {
+                        //when you are ready, resolve this promise
+                        resolve(`Here is your pizza 🍕 with your toppings ${toppings.join(', ')}`);
+                    }, 1000)
+                    //if went wrong, reject promise
             });
             return pizzaPromise;
         }
