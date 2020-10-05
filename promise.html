@@ -26,8 +26,10 @@
 
         const hawaiianPromise = makePizza(['canadian bacon', 'pineapples']);
 
+        console.log(hawaiianPromise);
 
-        pepperoniPromise.then(function(pizza) {
+        //.then to access returned value
+        hawaiianPromise.then(function(pizza) {
             console.log('Got it!');
             console.log(pizza);
         });
