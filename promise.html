@@ -5,19 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Promises</title>
-    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="./base.css">
 </head>
 
 <body>
     <script>
-        function makePizza() {
+        function makePizza(toppings) {
             const pizzaPromise = new Promise(function(resolve, reject) {
                 //when you are ready, resilve this promise
-
+                resolve(`Here is your pizza 🍕 with your toppings ${toppings.join(', ')}`);
                 //if went wrong, reject promise
             });
             return pizzaPromise;
         }
+
+        const pepperoniPromise = makePizza(['pepperoni']);
+
+        const hawaiianPromise = makePizza(['canadian bacon', 'pineapples']);
+
+
+        pepperoniPromise.then(function(pizza) {
+            console.log('Got it!');
+            console.log(pizza);
+        });
     </script>
 </body>
 
