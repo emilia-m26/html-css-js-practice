@@ -11,6 +11,8 @@ function ask(options) {
     popup.insertAdjacentHTML('afterbegin', `
      <fieldset>
      <label>${options.title}</label>
+     <input type="text" name="input"/>
+     <button type="submit">Submit</button>
      </fieldset>
     `);
     //console.log(popup);
