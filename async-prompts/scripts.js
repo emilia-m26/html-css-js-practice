@@ -1,8 +1,10 @@
 console.log('connected');
-
+function wait(ms = 0) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 //make prompt function
 function ask(options) {
-    return new Promise (function(resolve) {
+    return new Promise (async function(resolve) {
 //need to create a popup with fields in it
     const popup = document.createElement('form');
     popup.classList.add('popup');
@@ -27,8 +29,7 @@ function ask(options) {
 //insert popup into DOM
 document.body.appendChild(popup);
 //add small timeout before adding open class (so it fades in)
-    setTimeout(function(){
+    await wait(100)
         popup.classList.add('open');
-    }, 100);
  });
 }
