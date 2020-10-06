@@ -8,8 +8,8 @@ function ask(options) {
 //need to create a popup with fields in it
     const popup = document.createElement('form');
     popup.classList.add('popup');
-    popup.insertAdjacentHTML('afterbegin', `
-     <fieldset>
+    popup.insertAdjacentHTML('afterbegin', 
+    `<fieldset>
      <label>${options.title}</label>
      <input type="text" name="input"/>
      <button type="submit">Submit</button>
@@ -21,7 +21,9 @@ function ask(options) {
     if(options.cancel) {
         const skipButton = document.createElement('button');
         skipButton.type = 'button'; //if not don't give type, form will assume it is submit
-        skipButton.textContent = 'Cancel'; 
+        skipButton.textContent = 'Cancel';
+        console.log(popup.firstElementChild);
+        popup.firstElementChild.appendChild(skipButton);
         //listen for click on that cancel button
     }
 //listen for submit event on inputs
