@@ -2,6 +2,15 @@ console.log('connected');
 function wait(ms = 0) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+async function destroyPopup(popup) {
+    popup.classList.remove('open');
+    await wait(1000);
+    //remove entirely
+    popup.remove();
+    popup = null;
+}
+
 //make prompt function
 function ask(options) {
     return new Promise (async function(resolve) {
@@ -30,7 +39,7 @@ function ask(options) {
             //console.log('Submitted');
             resolve(event.target.input.value);
             //remove from DOM entirely
-            
+            destroyPopup(popup)
         },
         { once: true });
     }
@@ -45,3 +54,4 @@ document.body.appendChild(popup);
         popup.classList.add('open');
  });
 }
+
