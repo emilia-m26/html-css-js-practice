@@ -25,6 +25,14 @@ function ask(options) {
         console.log(popup.firstElementChild);
         popup.firstElementChild.appendChild(skipButton);
         //listen for click on that cancel button
+        popup.addEventListener('submit', function(event){
+            event.preventDefault();
+            //console.log('Submitted');
+            resolve(event.target.input.value);
+            //remove from DOM entirely
+            
+        },
+        { once: true });
     }
 //listen for submit event on inputs
 
