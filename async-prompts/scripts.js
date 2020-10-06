@@ -26,6 +26,9 @@ function ask(options) {
 
 //insert popup into DOM
 document.body.appendChild(popup);
-popup.classList.add('open');
-    });
+//add small timeout before adding open class (so it fades in)
+    setTimeout(function(){
+        popup.classList.add('open');
+    }, 100);
+ });
 }
