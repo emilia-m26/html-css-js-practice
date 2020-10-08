@@ -34,6 +34,8 @@ function ask(options) {
         console.log(popup.firstElementChild);
         popup.firstElementChild.appendChild(skipButton);
         //listen for click on that cancel button
+        }
+
         popup.addEventListener('submit', function(event){
             event.preventDefault();
             //console.log('Submitted');
@@ -41,8 +43,8 @@ function ask(options) {
             //remove from DOM entirely
             destroyPopup(popup);
         },
-        { once: true });
-    }
+        { once: true }
+    );
 //listen for submit event on inputs
 
 //when submitted, resolve data that was in inpput field
