@@ -39,7 +39,7 @@ function ask(options) {
             //console.log('Submitted');
             resolve(event.target.input.value);
             //remove from DOM entirely
-            destroyPopup(popup)
+            destroyPopup(popup);
         },
         { once: true });
     }
@@ -50,8 +50,21 @@ function ask(options) {
 //insert popup into DOM
 document.body.appendChild(popup);
 //add small timeout before adding open class (so it fades in)
-    await wait(100)
-        popup.classList.add('open');
+await wait(50)
+    popup.classList.add('open');
  });
 }
 
+
+async function askQuestion(event) {
+    console.log(event);
+    const button = event.currentTarget;
+    console.log(button); 
+    const answer = await ask({ title: button.dataset.question });
+    console.log(answer);
+}
+
+//select all buttons that have a question
+const buttons = document.querySelectorAll('[data-question]');
+
+buttons.forEach(button => button.addEventListener('click', askQuestion));
