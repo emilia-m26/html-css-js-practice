@@ -62,7 +62,7 @@ async function askQuestion(event) {
     //console.log(event);
     const button = event.currentTarget;
     //console.log(button); 
-    const shouldCancel = 'cancel' in button.dataset;
+    const shouldCancel = 'cancel' in button.dataset; //can use button.hasAttribute('data-cancel')
     const answer = await ask({ title: button.dataset.question, cancel: shouldCancel });
     console.log(answer);
 }
