@@ -34,8 +34,13 @@ function ask(options) {
         console.log(popup.firstElementChild);
         popup.firstElementChild.appendChild(skipButton);
         //listen for click on that cancel button
+        skipButton.addEventListener('click',function() {
+            resolve(null);
+            destroyPopup(popup);
+        }, { once: true }
+        );
         }
-
+//listen for submit event on inputs
         popup.addEventListener('submit', function(event){
             event.preventDefault();
             //console.log('Submitted');
@@ -45,9 +50,9 @@ function ask(options) {
         },
         { once: true }
     );
-//listen for submit event on inputs
 
-//when submitted, resolve data that was in inpput field
+
+//when submitted, resolve data that was in input field
 
 //insert popup into DOM
 document.body.appendChild(popup);
