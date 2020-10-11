@@ -76,3 +76,23 @@ async function askQuestion(event) {
 const buttons = document.querySelectorAll('[data-question]');
 
 buttons.forEach(button => button.addEventListener('click', askQuestion));
+
+
+const questions = [
+    { title: "O wai kou inoa?" },
+    { title: "No hea 'oe?", cancel: true }
+];
+
+// Promise.all(questions.map(ask)).then(data => {
+//     console.log(data);
+// })
+
+//for of allows you to pause a loop by awaiting inside
+async function askMany() {
+    for(const question of questions) {
+        const answer = await ask(question);
+        console.log(answer);
+    }
+}
+
+askMany();
