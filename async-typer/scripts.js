@@ -5,3 +5,12 @@ function wait(ms = 0) {
 function getRandomBetween(min = 20, max = 150, randomNumber = Math.random()){
     return Math.floor(randomNumber * (max - min) + min);
 }
+
+function draw(element){
+    console.log(element);
+}
+
+//selecting elements
+const els = document.querySelectorAll('[data-type]');
+
+els.forEach(el => draw(el));
