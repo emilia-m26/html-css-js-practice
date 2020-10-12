@@ -6,9 +6,22 @@ function getRandomBetween(min = 20, max = 150, randomNumber = Math.random()){
     return Math.floor(randomNumber * (max - min) + min);
 }
 
-function draw(element){
-    console.log(element);
+//async for of loop
+async function draw(element){
+    //console.log(element);
+    const text = element.textContent;
+    let soFar = '';
+    for(const letter of text) {
+        console.log(letter);
+        soFar += letter;
+        //console.log(soFar);
+        element.textContent = soFar;
+        //wait for time
+        await wait(10);
+    }
 }
+
+//recursion
 
 // //selecting elements
 // const els = document.querySelectorAll('[data-type]');
