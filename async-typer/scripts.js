@@ -10,7 +10,10 @@ function draw(element){
     console.log(element);
 }
 
-//selecting elements
-const els = document.querySelectorAll('[data-type]');
+// //selecting elements
+// const els = document.querySelectorAll('[data-type]');
 
-els.forEach(el => draw(el));
+// els.forEach(el => draw(el));
+
+//same as above commented out
+document.querySelectorAll('[data-type]').forEach(draw);
