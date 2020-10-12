@@ -12,7 +12,7 @@ async function draw(element){
     const text = element.textContent;
     let soFar = '';
     for(const letter of text) {
-        console.log(letter);
+        //console.log(letter);
         soFar += letter;
         //console.log(soFar);
         element.textContent = soFar;
