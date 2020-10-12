@@ -17,7 +17,8 @@ async function draw(element){
         //console.log(soFar);
         element.textContent = soFar;
         //wait for time
-        await wait(10);
+        const amountOfTimeToWait = getRandomBetween();
+        await wait(amountOfTimeToWait);
     }
 }
 
