@@ -5,12 +5,12 @@ const jokeHolder = document.querySelector('.joke p');
 const buttonText = [
   'Ugh.',
   '🤦🏻‍♂️',
-  'omg dad.',
-  'you are the worst',
-  'seriously',
-  'stop it.',
-  'please stop',
-  'that was the worst one',
+  'OMG Dad.',
+  'You Are The Worst',
+  'Seriously',
+  'Stop It.',
+  'Please Stop',
+  'That Was The Worst One',
 ];
 
 async function fetchJoke() {
