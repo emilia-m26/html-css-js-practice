@@ -23,4 +23,10 @@ async function fetchJoke() {
   return data;
 }
 
-fetchJoke();
+async function handleClick() {
+  const { joke } = await fetchJoke();
+  console.log(joke);
+}
+
+jokeButton.addEventListener('click', handleClick);
+//fetchJoke();
