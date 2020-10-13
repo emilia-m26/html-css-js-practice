@@ -1,3 +1,7 @@
+const jokeButton = doccument.querySelector('.getJoke');
+const jokeHolder = doccument.querySelector('.joke p');
+
+
 const buttonText = [
   'Ugh.',
   '🤦🏻‍♂️',
