@@ -25,7 +25,8 @@ async function fetchJoke() {
 
 async function handleClick() {
   const { joke } = await fetchJoke();
-  console.log(joke);
+  //console.log(joke);
+  jokeHolder.textContent = joke;
 }
 
 jokeButton.addEventListener('click', handleClick);
