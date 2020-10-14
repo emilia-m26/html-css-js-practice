@@ -1,5 +1,6 @@
 const fromSelect = document.querySelector('[name="from_currency"]');
 const toSelect = document.querySelector('[name="to_currency"]');
+const endpoint = 'https://api.exchangeratesapi.io/latest';
 
 const currencies = {
   USD: 'United States Dollar',
@@ -44,7 +45,15 @@ function generateOptions(options) {
   }).join('');
 }
 
+async function fetchRates(base = 'USD') {
+  const response = await fetch(`${endpoint}?base=${base}`);
+  const rates = await response.json();
+  console.log(rates);
+}
+
 const optionsHTML = generateOptions(currencies);
 //console.log(optionsHTML);
 
 //populate options elements on page load
+fromSelect.innerHTML = optionsHTML;
+toSelect.innerHTML = optionsHTML;
