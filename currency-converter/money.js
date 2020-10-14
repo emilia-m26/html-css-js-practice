@@ -55,8 +55,15 @@ async function fetchRates(base = 'USD') {
   return rates;
 }
 
-function convert(amount, from, to) {
-
+async function convert(amount, from, to) {
+  if(!ratesByBase[from]) {
+    console.log(`We don't have ${from} to convert to ${to}. Let's go get it.`
+    );
+    const rates = await fetchRates(from);
+    console.log(rates);
+    //store for next time
+    ratesByBase[from] = rates;
+  }
 }
 
 const optionsHTML = generateOptions(currencies);
