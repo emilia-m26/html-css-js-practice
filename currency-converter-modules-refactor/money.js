@@ -14,12 +14,7 @@ const ratesByBase = {};
 
 
 
-function formatCurrency(amount, currency) {
-  return Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: currency,
-  }).format(amount);
-}
+
 
 async function handleInput(e) {
   //changes each time

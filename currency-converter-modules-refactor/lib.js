@@ -1,11 +1,11 @@
-async function fetchRates(base = 'USD') {
+export async function fetchRates(base = 'USD') {
     const response = await fetch(`${endpoint}?base=${base}`);
     const rates = await response.json();
     //console.log(rates);
     return rates;
   }
   
-  async function convert(amount, from, to) {
+  export async function convert(amount, from, to) {
     if(!ratesByBase[from]) {
       console.log(`We don't have ${from} to convert to ${to}. Let's go get it.`
       );

@@ -5,3 +5,10 @@ export function generateOptions(options) {
       return `<option value="${currencyCode}">${currencyCode} - ${currencyName}</option>`
     }).join('');
   }
+
+export function formatCurrency(amount, currency) {
+    return Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: currency,
+    }).format(amount);
+  }
