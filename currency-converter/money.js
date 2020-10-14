@@ -1,5 +1,6 @@
 const fromSelect = document.querySelector('[name="from_currency"]');
 const toSelect = document.querySelector('[name="to_currency"]');
+const form = document.querySelector('.app form');
 const endpoint = 'https://api.exchangeratesapi.io/latest';
 //going to store all rates so we aren't fetching constantly
 const ratesByBase = {};
@@ -71,9 +72,16 @@ async function convert(amount, from, to) {
   return convertedAmount;
 }
 
+function handleInput() {
+  
+}
+
 const optionsHTML = generateOptions(currencies);
 //console.log(optionsHTML);
 
 //populate options elements on page load
 fromSelect.innerHTML = optionsHTML;
 toSelect.innerHTML = optionsHTML;
+
+//event listener
+form.addEventListener('input',handleInput);
