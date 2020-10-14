@@ -1,3 +1,5 @@
+import { covert } from './lib.js';
+
 export async function handleInput(e) {
     //changes each time
     //console.log(e.target); 
