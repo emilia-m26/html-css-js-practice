@@ -1,4 +1,6 @@
-import { covert } from './lib.js';
+import { convert } from './lib.js';
+import { formatCurrency } from './utils.js';
+import { fromInput, fromSelect, toSelect, toAmount } from './elements.js';
 
 export async function handleInput(e) {
     //changes each time
