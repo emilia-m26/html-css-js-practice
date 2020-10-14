@@ -74,6 +74,13 @@ async function convert(amount, from, to) {
   return convertedAmount;
 }
 
+function formatCurrency(amount, currency) {
+  return Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: currency,
+  }).format(amount);
+}
+
 async function handleInput(e) {
   //changes each time
   //console.log(e.target); 
@@ -82,7 +89,7 @@ async function handleInput(e) {
   const rawAmount = await convert(fromInput.value, fromSelect.value, toSelect.value
     );
     //console.log(rawAmount);
-    toAmount.textContent = rawAmount;
+    toAmount.textContent = formatCurrency(rawAmount,toSelect.value);
 }
 
 const optionsHTML = generateOptions(currencies);
