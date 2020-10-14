@@ -48,7 +48,8 @@ function generateOptions(options) {
 async function fetchRates(base = 'USD') {
   const response = await fetch(`${endpoint}?base=${base}`);
   const rates = await response.json();
-  console.log(rates);
+  //console.log(rates);
+  return rates;
 }
 
 const optionsHTML = generateOptions(currencies);
