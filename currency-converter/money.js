@@ -72,8 +72,11 @@ async function convert(amount, from, to) {
   return convertedAmount;
 }
 
-function handleInput() {
-  
+function handleInput(e) {
+  //changes each time
+  console.log(e.target); 
+  //always the form
+  console.log(e.currentTarget);
 }
 
 const optionsHTML = generateOptions(currencies);
@@ -83,5 +86,5 @@ const optionsHTML = generateOptions(currencies);
 fromSelect.innerHTML = optionsHTML;
 toSelect.innerHTML = optionsHTML;
 
-//event listener
+//event listener - listening on form to cover all inputs at once
 form.addEventListener('input',handleInput);
