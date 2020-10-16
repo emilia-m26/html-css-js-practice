@@ -4,15 +4,7 @@ const jokeHolder = document.querySelector('.joke p');
 
 
 
-async function fetchJoke() {
-  const response = await fetch('https://icanhazdadjoke.com', {
-    headers: {
-      Accept: 'application/json',
-    }
-  });
-  const data = await response.json();
-  return data;
-}
+
 
 //utility function
 function randomItemFromArray(arr, not) {
