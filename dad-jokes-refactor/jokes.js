@@ -2,16 +2,7 @@ const jokeButton = document.querySelector('.getJoke');
 const jokeHolder = document.querySelector('.joke p');
 
 
-const buttonText = [
-  'Ugh.',
-  '🤦🏻‍♂️',
-  'OMG Dad.',
-  'You Are The Worst',
-  'Seriously',
-  'Stop It.',
-  'Please Stop',
-  'That Was The Worst One',
-];
+
 
 async function fetchJoke() {
   const response = await fetch('https://icanhazdadjoke.com', {
