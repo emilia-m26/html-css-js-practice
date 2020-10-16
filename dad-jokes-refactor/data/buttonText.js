@@ -8,3 +8,5 @@ const buttonText = [
     'Please Stop',
     'That Was The Worst One',
   ];
+
+  export default buttonText;

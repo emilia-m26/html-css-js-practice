@@ -1,6 +1,6 @@
 //core to what application does - library
 
-async function fetchJoke() {
+export async function fetchJoke(loader) {
     const response = await fetch('https://icanhazdadjoke.com', {
       headers: {
         Accept: 'application/json',
