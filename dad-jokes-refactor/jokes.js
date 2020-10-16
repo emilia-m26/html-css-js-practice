@@ -1,5 +1,7 @@
-const jokeButton = document.querySelector('.getJoke');
-const jokeHolder = document.querySelector('.joke p');
+import { handleClick } from './lib/handlers.js';
 
-jokeButton.addEventListener('click', handleClick);
+
+jokeButton.addEventListener('click', function() {
+  handleClick(loader);
+});
 //fetchJoke();
